@@ -8,7 +8,8 @@
 ARG RELEASE=latest
 
 FROM ubuntu:${RELEASE}
-
+ENV TZ=Asia/Seoul
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt-get update && apt-get install -y \
 	autoconf \
 	autoconf-archive \
